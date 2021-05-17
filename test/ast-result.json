@@ -1,0 +1,262 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 53,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 4,
+      "column": 0
+    }
+  },
+  "errors": [],
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 53,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 4,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 27
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 7,
+            "end": 10,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 7
+              },
+              "end": {
+                "line": 1,
+                "column": 10
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 7,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 7
+                },
+                "end": {
+                  "line": 1,
+                  "column": 10
+                },
+                "identifierName": "add"
+              },
+              "name": "add"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 16,
+          "end": 26,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 16
+            },
+            "end": {
+              "line": 1,
+              "column": 26
+            }
+          },
+          "extra": {
+            "rawValue": "./add.js",
+            "raw": "\"./add.js\""
+          },
+          "value": "./add.js"
+        }
+      },
+      {
+        "type": "ExpressionStatement",
+        "start": 29,
+        "end": 52,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 23
+          }
+        },
+        "expression": {
+          "type": "CallExpression",
+          "start": 29,
+          "end": 51,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 22
+            }
+          },
+          "callee": {
+            "type": "MemberExpression",
+            "start": 29,
+            "end": 40,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 11
+              }
+            },
+            "object": {
+              "type": "Identifier",
+              "start": 29,
+              "end": 36,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 3,
+                  "column": 7
+                },
+                "identifierName": "console"
+              },
+              "name": "console"
+            },
+            "computed": false,
+            "property": {
+              "type": "Identifier",
+              "start": 37,
+              "end": 40,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 8
+                },
+                "end": {
+                  "line": 3,
+                  "column": 11
+                },
+                "identifierName": "log"
+              },
+              "name": "log"
+            }
+          },
+          "arguments": [
+            {
+              "type": "CallExpression",
+              "start": 41,
+              "end": 50,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 12
+                },
+                "end": {
+                  "line": 3,
+                  "column": 21
+                }
+              },
+              "callee": {
+                "type": "Identifier",
+                "start": 41,
+                "end": 44,
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 15
+                  },
+                  "identifierName": "add"
+                },
+                "name": "add"
+              },
+              "arguments": [
+                {
+                  "type": "NumericLiteral",
+                  "start": 45,
+                  "end": 46,
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 17
+                    }
+                  },
+                  "extra": {
+                    "rawValue": 1,
+                    "raw": "1"
+                  },
+                  "value": 1
+                },
+                {
+                  "type": "NumericLiteral",
+                  "start": 48,
+                  "end": 49,
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 19
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 20
+                    }
+                  },
+                  "extra": {
+                    "rawValue": 2,
+                    "raw": "2"
+                  },
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": []
+}
