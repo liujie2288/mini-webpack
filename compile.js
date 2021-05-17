@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const fse = require("fs-extra");
 const astParser = require("@babel/parser");
 const astTraverse = require("@babel/traverse").default;
 const babel = require("@babel/core");
@@ -19,35 +20,62 @@ function getModuleInfo(file) {
       deps[node.source.value] = abspath;
     },
   });
+
   // console.log(deps)  { './add.js': './src/add.js' }
 
   // es6转es5
-  const { code } = babel.transformFromAst(ast, null, {
+  const res = babel.transformFromAst(ast, null, {
     presets: ["@babel/preset-env"],
   });
 
-  const moduleInfo = { file, deps, code };
-  return moduleInfo;
-}
+  // fs.createWriteStream("./babel-result.js").write(res.code);
 
+  return { file, deps, code: res.code };
+}
 
 /**
  * 获取依赖
- * @param {*} temp 
- * @param {*} param1 
+ * @param {*} temp
+ * @param {*} param1
  */
- function getDeps(temp, { deps }) {
-  Object.keys(deps).forEach((key) => {
-    const child = getModuleInfo(deps[key]);
-    temp.push(child);
-    getDeps(temp, child);
+function getDeps(result, deps) {
+  if (!deps) return;
+  Object.keys(deps).forEach((depKey) => {
+    const { code, deps: curMoudleDeps } = getModuleInfo(deps[depKey]);
+    result[depKey] = code;
+    getDeps(result, curMoudleDeps);
   });
 }
 
 // 模块解析
-function parseModules(file){
+function parseModules(file) {
   const entry = getModuleInfo(file);
-
+  const result = {
+    "index.js": entry.code,
+  };
+  getDeps(result, entry.deps);
+  return result;
 }
 
-parseModules("./src/index.js");
+// 生成文件
+function build(entryfile) {
+  const result = parseModules(entryfile);
+  fse.outputFile(
+    "./build/bundle.js",
+    `(function (list) {
+    function require(file) {
+      var exports = {};
+      (function (exports, code) {
+        eval(code);
+      })(exports, list[file]);
+      return exports;
+    }
+    require("index.js");
+  })(${JSON.stringify(result, null, 2)});`,
+    function (error) {
+      if (error) throw error;
+      console.log("构建成功");
+    }
+  );
+}
+build("./src/index.js");
